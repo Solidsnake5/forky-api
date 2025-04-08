@@ -9,7 +9,7 @@ import RecipeDetail from "@/components/recipe-detail"
 import LoadingSpinner from "@/components/loading-spinner"
 import { searchRecipes, getRecipe } from "@/services/recipe-service"
 import type { Recipe, SearchResult } from "@/types/recipe"
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -41,7 +41,7 @@ export default function Home() {
         setSelectedRecipeId(null)
         setSelectedRecipe(null)
       }
-    } catch (err) {
+    } catch (error) {
       setError("Failed to search recipes. Please try again.")
       setSearchResults([])
       setSelectedRecipeId(null)
@@ -81,7 +81,7 @@ export default function Home() {
       try {
         const recipe = await getRecipe(selectedRecipeId)
         setSelectedRecipe(recipe)
-      } catch (err) {
+      } catch (error) {
         setError("Failed to load recipe details. Please try again.")
         setSelectedRecipe(null)
       } finally {
@@ -136,7 +136,7 @@ export default function Home() {
               </>
             ) : searchQuery ? (
               <div className="flex items-center justify-center h-full p-4 text-gray-500">
-                No recipes found for "{searchQuery}". Try another search.
+                No recipes found for &quot;{searchQuery}&quot;. Try another search.
               </div>
             ) : null}
           </div>
