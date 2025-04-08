@@ -41,7 +41,7 @@ export default function Home() {
         setSelectedRecipeId(null)
         setSelectedRecipe(null)
       }
-    } catch (error) {
+    } catch (_) {
       setError("Failed to search recipes. Please try again.")
       setSearchResults([])
       setSelectedRecipeId(null)
@@ -81,7 +81,7 @@ export default function Home() {
       try {
         const recipe = await getRecipe(selectedRecipeId)
         setSelectedRecipe(recipe)
-      } catch (error) {
+      } catch (_) {
         setError("Failed to load recipe details. Please try again.")
         setSelectedRecipe(null)
       } finally {
